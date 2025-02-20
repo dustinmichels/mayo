@@ -18,6 +18,7 @@ driver.get(url)
 
 divs = driver.find_elements(By.CLASS_NAME, "ch-search-result")
 for div in divs:
+    print("-" * 10)
     print(div.text)
 
 driver.quit()
