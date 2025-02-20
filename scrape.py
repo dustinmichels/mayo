@@ -3,7 +3,9 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-url = "https://connect.mayoclinic.org/search/?search=vonoprazan"
+# url = "https://connect.mayoclinic.org/search/?search=vonoprazan"
+url = "http://localhost:8000/vonoprazan.html"
+
 
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")  # Run in headless mode
@@ -16,8 +18,10 @@ driver = webdriver.Chrome(
 )
 driver.get(url)
 
+
 divs = driver.find_elements(By.CLASS_NAME, "ch-search-result")
 for div in divs:
+    print("-" * 10)
     print(div.text)
 
 driver.quit()
